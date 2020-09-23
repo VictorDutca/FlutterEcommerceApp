@@ -22,23 +22,42 @@ class _HomeScreenState extends State<HomeScreen> {
 
 AppBar _myAppBar() {
   return AppBar(
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Image(
-            image: AssetImage("assets/images/logo.jpg"),
-            width: 60.0,
-            height: 60.0,
+    title: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Image(
+          image: AssetImage("assets/images/logo.jpg"),
+          width: 60.0,
+          height: 60.0,
+        ),
+        Spacer(),
+        Icon(Icons.add_shopping_cart),
+      ],
+    ),
+    bottom: PreferredSize(
+        child: Container(
+          margin: const EdgeInsets.only(bottom: 5),
+          width: 375.0,
+          height: 50,
+          child: TextField(
+            decoration: InputDecoration(
+              prefixIcon: Icon(Icons.search),
+              hintText: "What are you looking for ?",
+              enabledBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(width: 1),
+                  borderRadius: BorderRadius.all(Radius.circular(20))),
+              focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  borderSide: BorderSide(color: Colors.blue)),
+            ),
           ),
-          Spacer(),
-          Icon(Icons.add_shopping_cart),
-        ],
-      ),
-      bottom: PreferredSize(
-          child: Row(
-            children: <Widget>[Text("data")],
-          ),
-          preferredSize: Size(50, 50)));
+        ),
+        preferredSize: Size(50, 50)),
+  );
+}
+
+Color hexToColor(String code) {
+  return new Color(int.parse(code.substring(1, 7), radix: 16) + 0xFF000000);
 }
 
 Drawer _myDrawer() {
