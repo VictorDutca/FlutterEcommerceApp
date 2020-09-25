@@ -15,17 +15,13 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        backgroundColor: Color(0xffe3e3e3),
-        appBar: PreferredSize(
-          child: MyAppBar(),
-          preferredSize: Size(150, 100),
-        ),
-        drawer: _myDrawer(),
-        //bottomNavigationBar: MyBottomNav(),
-        body: MySlider(),
-      ),
-    );
+        child: Scaffold(
+      appBar: PreferredSize(child: MyAppBar(), preferredSize: Size(150, 100)),
+      backgroundColor: Color(0xffe3e3e3),
+      drawer: _myDrawer(),
+      //bottomNavigationBar: MyBottomNav(),
+      body: MySlider(),
+    ));
   }
 }
 
