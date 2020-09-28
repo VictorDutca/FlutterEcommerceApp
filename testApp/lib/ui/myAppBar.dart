@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:testApp/ui/home/homeScreen.dart';
+import 'package:testApp/ui/home/mainScreen.dart';
 
 class MyAppBar extends StatefulWidget {
   MyAppBar({Key key}) : super(key: key);
@@ -18,7 +19,7 @@ class _AppBarState extends State<MyAppBar> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => HomeScreen()),
+                MaterialPageRoute(builder: (context) => MainScreen()),
               );
             },
             child: Image(

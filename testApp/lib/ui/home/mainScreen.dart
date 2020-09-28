@@ -13,7 +13,7 @@ class MainScreen extends StatefulWidget {
 
 class _StateMainScreen extends State<MainScreen> {
   int _selectedIndex = 0;
-  List<Widget> _list = [
+  List<Widget> list = [
     HomeScreen(),
     WishList(),
     Account(),
@@ -26,29 +26,33 @@ class _StateMainScreen extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
-      body: _list.elementAt(_selectedIndex),
-      bottomNavigationBar: BottomNavigationBar(
-        unselectedItemColor: Colors.grey,
-        currentIndex: _selectedIndex,
-        onTap: onItemTaped,
-        selectedItemColor: Colors.blueAccent,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            title: Text("Home"),
+    return WillPopScope(
+        onWillPop: () {
+          Navigator.pop(context);
+        },
+        child: SafeArea(
+            child: Scaffold(
+          body: list.elementAt(_selectedIndex),
+          bottomNavigationBar: BottomNavigationBar(
+            unselectedItemColor: Colors.grey,
+            currentIndex: _selectedIndex,
+            onTap: onItemTaped,
+            selectedItemColor: Colors.blueAccent,
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                title: Text("Home"),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.favorite_border),
+                title: Text("Wishlist"),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person_outline),
+                title: Text("Account"),
+              ),
+            ],
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border),
-            title: Text("Wishlist"),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),
-            title: Text("Account"),
-          ),
-        ],
-      ),
-    ));
+        )));
   }
 }

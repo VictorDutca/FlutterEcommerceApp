@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:testApp/ui/myAppBar.dart';
+import 'myDrawer.dart';
 
 class Account extends StatefulWidget {
-  Account({Key key}) : super(key: key);
+  final Function onNext;
+  Account({Key key, this.onNext}) : super(key: key);
+
   @override
   _Account createState() => _Account();
 }
@@ -9,9 +13,20 @@ class Account extends StatefulWidget {
 class _Account extends State<Account> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: <Widget>[Text("Login"), Text("Password")],
+    return Scaffold(
+      appBar: PreferredSize(child: MyAppBar(), preferredSize: Size(150, 100)),
+      drawer: MyDrawer(),
+      body: Center(
+        child: Column(
+          children: <Widget>[
+            TextField(
+              decoration: InputDecoration(
+                icon: Icon(Icons.account_box),
+                hintText: "Username",
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
