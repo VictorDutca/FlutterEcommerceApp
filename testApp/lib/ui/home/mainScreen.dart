@@ -27,9 +27,7 @@ class _StateMainScreen extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-        onWillPop: () {
-          Navigator.pop(context);
-        },
+        onWillPop: _onBackPressed,
         child: SafeArea(
             child: Scaffold(
           body: list.elementAt(_selectedIndex),
@@ -54,5 +52,27 @@ class _StateMainScreen extends State<MainScreen> {
             ],
           ),
         )));
+  }
+
+  Future<bool> _onBackPressed() {
+    return showDialog(
+          context: context,
+          builder: (context) => new AlertDialog(
+            title: Text('Are you sure?'),
+            content: Text('Do you want to exit an App'),
+            actions: <Widget>[
+              GestureDetector(
+                onTap: () => Navigator.of(context).pop(false),
+                child: Text("NO"),
+              ),
+              SizedBox(height: 16),
+              GestureDetector(
+                onTap: () => Navigator.of(context).pop(true),
+                child: Text("YES"),
+              ),
+            ],
+          ),
+        ) ??
+        false;
   }
 }
