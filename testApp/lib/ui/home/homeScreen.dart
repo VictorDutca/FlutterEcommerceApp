@@ -1,42 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:testApp/ui/myDrawer.dart';
-import 'package:testApp/ui/slider.dart';
-import 'package:testApp/ui/myBottomNav.dart';
+import 'package:testApp/ui/BodyHome.dart';
 import 'package:testApp/ui/myAppBar.dart';
+import 'package:testApp/ui/myDrawer.dart';
 
-class HomeScreen extends StatefulWidget {
-  HomeScreen({Key key, this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
+class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
-      appBar: PreferredSize(child: MyAppBar(), preferredSize: Size(150, 100)),
-      backgroundColor: Color(0xffe3e3e3),
+    return Scaffold(
+      appBar: PreferredSize(child: MyAppBar(), preferredSize: Size(150, 110)),
       drawer: MyDrawer(),
-      //bottomNavigationBar: MyBottomNav(),
-      body: myBody(),
-    ));
+      body: MyBody(),
+    );
   }
-}
-
-Color hexToColor(String code) {
-  return new Color(int.parse(code.substring(1, 7), radix: 16) + 0xFF000000);
-}
-
-Widget myBody() {
-  return Container(
-    width: 50,
-    height: 50,
-    color: Colors.blueGrey[100],
-    child: Column(
-      children: <Widget>[MySlider()],
-    ),
-  );
 }
