@@ -58,8 +58,8 @@ class _StateMainScreen extends State<MainScreen> {
     return showDialog(
           context: context,
           builder: (context) => new AlertDialog(
-            title: Text('Are you sure?'),
-            content: Text('Do you want to exit an App'),
+            title: Text('Sei sicuro'),
+            content: Text('Chiudere ShopyFast?'),
             actions: <Widget>[
               GestureDetector(
                 onTap: () => Navigator.of(context).pop(false),
@@ -68,7 +68,7 @@ class _StateMainScreen extends State<MainScreen> {
               SizedBox(height: 16),
               GestureDetector(
                 onTap: () => Navigator.of(context).pop(true),
-                child: Text("YES"),
+                child: Text("SI"),
               ),
             ],
           ),

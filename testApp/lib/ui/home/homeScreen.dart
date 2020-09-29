@@ -21,11 +21,22 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Color(0xffe3e3e3),
       drawer: MyDrawer(),
       //bottomNavigationBar: MyBottomNav(),
-      body: MySlider(),
+      body: myBody(),
     ));
   }
 }
 
 Color hexToColor(String code) {
   return new Color(int.parse(code.substring(1, 7), radix: 16) + 0xFF000000);
+}
+
+Widget myBody() {
+  return Container(
+    width: 50,
+    height: 50,
+    color: Colors.blueGrey[100],
+    child: Column(
+      children: <Widget>[MySlider()],
+    ),
+  );
 }

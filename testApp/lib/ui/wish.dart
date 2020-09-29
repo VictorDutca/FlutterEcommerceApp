@@ -13,9 +13,9 @@ class _WishListState extends State<WishList> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            drawer: MyDrawer(),
             appBar:
                 PreferredSize(child: MyAppBar(), preferredSize: Size(150, 100)),
+            drawer: MyDrawer(),
             body: Container(
               height: 120,
               width: 90,
