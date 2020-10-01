@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testApp/ui/constants.dart';
 
 import 'package:testApp/ui/home/mainScreen.dart';
 
@@ -9,7 +10,9 @@ class ShopyFast extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: darkBlue),
+      theme: ThemeData.dark().copyWith(
+          scaffoldBackgroundColor: darkBlue,
+          textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor)),
       home: MainScreen(),
     );
   }

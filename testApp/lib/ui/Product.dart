@@ -29,7 +29,7 @@ List<Product> products = [
       price: 650,
       size: 14,
       description: dummyText,
-      image: "assets/images/onePlus8.jpg",
+      image: "assets/images/oneplus8.jpg",
       color: Color.fromARGB(250, 42, 84, 80)),
   Product(
       id: 3,

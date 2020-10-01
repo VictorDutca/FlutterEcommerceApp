@@ -29,7 +29,7 @@ class _AppBarState extends State<MyAppBar> {
             ),
           ),
           Spacer(),
-          Icon(Icons.add_shopping_cart),
+          Icon(Icons.shopping_cart),
         ],
       ),
       bottom: PreferredSize(
