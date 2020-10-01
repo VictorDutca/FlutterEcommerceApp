@@ -1,0 +1,52 @@
+import 'package:flutter/material.dart';
+
+import '../shoppingList.dart';
+
+class CartItemCard extends StatelessWidget {
+  const CartItemCard({
+    Key key,
+    @required this.sList,
+  }) : super(key: key);
+  final ShoppingList sList;
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        SizedBox(
+          width: 100,
+          height: 100,
+          child: AspectRatio(
+            aspectRatio: 0.88,
+            child: Container(
+              padding: EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                  color: sList.product.color,
+                  borderRadius: BorderRadius.circular(15)),
+              child: Image.asset(sList.product.image),
+            ),
+          ),
+        ),
+        SizedBox(
+          width: 20,
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(sList.product.title,
+                style: TextStyle(color: Colors.white, fontSize: 16)),
+            SizedBox(
+              height: 10,
+            ),
+            Text.rich(TextSpan(
+                text: "€${sList.product.price}",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18),
+                children: [TextSpan(text: " quantità: ${sList.numOfItems}")]))
+          ],
+        )
+      ],
+    );
+  }
+}

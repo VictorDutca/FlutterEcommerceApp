@@ -1,33 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:testApp/ui/details/CartBody.dart';
+import 'package:testApp/ui/details/shoppingList.dart';
 import 'package:testApp/ui/myAppBar.dart';
 import 'package:testApp/ui/myDrawer.dart';
 
-class ShoppingCart extends StatefulWidget {
-  ShoppingCart({Key key}) : super(key: key);
-
-  @override
-  _ShoppingCartState createState() => _ShoppingCartState();
-}
-
-class _ShoppingCartState extends State<ShoppingCart> {
+class ShoppingCart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: MyDrawer(),
-        appBar: PreferredSize(child: MyAppBar(), preferredSize: Size(150, 100)),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-          child: Column(
-            children: <Widget>[
-              Text(
-                "Carello",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 35),
-              )
-            ],
+      appBar: shoppingAppBar(),
+      body: CartBody(),
+    );
+  }
+
+  AppBar shoppingAppBar() {
+    return AppBar(
+      centerTitle: true,
+      title: Column(
+        children: [
+          Text(
+            "Il Tuo carello",
+            style: TextStyle(fontSize: 20),
           ),
-        ));
+          SizedBox(
+            height: 5,
+          ),
+          Text(
+            "contiene: ${demoCarts.length} elementi",
+            style: TextStyle(fontWeight: FontWeight.normal, fontSize: 15),
+          )
+        ],
+      ),
+    );
   }
 }
