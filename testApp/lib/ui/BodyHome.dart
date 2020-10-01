@@ -105,8 +105,11 @@ class ItemCard1 extends StatelessWidget {
                 color: products[0].color,
                 borderRadius: BorderRadius.circular(16),
               ),
-              child: Image.asset(
-                products[0].image,
+              child: Hero(
+                tag: "${products[0]}",
+                child: Image.asset(
+                  products[0].image,
+                ),
               ),
             ),
             Padding(
@@ -114,11 +117,12 @@ class ItemCard1 extends StatelessWidget {
                     const EdgeInsets.symmetric(vertical: kDefaultPadding / 4),
                 child: Text(
                   products[0].title,
-                  style: TextStyle(color: kTextLightColor),
+                  style: TextStyle(color: Colors.white),
                 )),
             Text(
               "€ ${products[0].price}",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style:
+                  TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
             ),
           ],
         ));
@@ -153,11 +157,12 @@ class ItemCard2 extends StatelessWidget {
                     const EdgeInsets.symmetric(vertical: kDefaultPadding / 4),
                 child: Text(
                   products[1].title,
-                  style: TextStyle(color: kTextLightColor),
+                  style: TextStyle(color: Colors.white),
                 )),
             Text(
               "€ ${products[1].price}",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style:
+                  TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
             ),
           ],
         ));
@@ -192,11 +197,12 @@ class ItemCard3 extends StatelessWidget {
                     const EdgeInsets.symmetric(vertical: kDefaultPadding / 4),
                 child: Text(
                   products[2].title,
-                  style: TextStyle(color: kTextLightColor),
+                  style: TextStyle(color: Colors.white),
                 )),
             Text(
               "€ ${products[2].price}",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style:
+                  TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
             ),
           ],
         ));
@@ -231,11 +237,12 @@ class ItemCard4 extends StatelessWidget {
                     const EdgeInsets.symmetric(vertical: kDefaultPadding / 4),
                 child: Text(
                   products[3].title,
-                  style: TextStyle(color: kTextLightColor),
+                  style: TextStyle(color: Colors.white),
                 )),
             Text(
               "€ ${products[3].price}",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style:
+                  TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
             ),
           ],
         ));
@@ -270,11 +277,12 @@ class ItemCard5 extends StatelessWidget {
                     const EdgeInsets.symmetric(vertical: kDefaultPadding / 4),
                 child: Text(
                   products[4].title,
-                  style: TextStyle(color: kTextLightColor),
+                  style: TextStyle(color: Colors.white),
                 )),
             Text(
               "€ ${products[4].price}",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style:
+                  TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
             ),
           ],
         ));
@@ -309,11 +317,12 @@ class ItemCard6 extends StatelessWidget {
                     const EdgeInsets.symmetric(vertical: kDefaultPadding / 4),
                 child: Text(
                   products[5].title,
-                  style: TextStyle(color: kTextLightColor),
+                  style: TextStyle(color: Colors.white),
                 )),
             Text(
               "€ ${products[5].price}",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style:
+                  TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
             ),
           ],
         ));

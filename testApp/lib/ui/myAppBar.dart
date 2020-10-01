@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:testApp/ui/home/homeScreen.dart';
 import 'package:testApp/ui/home/mainScreen.dart';
+import 'details/ShoppingCart.dart';
 
 class MyAppBar extends StatefulWidget {
   MyAppBar({Key key}) : super(key: key);
@@ -29,7 +30,17 @@ class _AppBarState extends State<MyAppBar> {
             ),
           ),
           Spacer(),
-          Icon(Icons.shopping_cart),
+          InkWell(
+            onTap: () {
+              setState(() {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ShoppingCart()));
+              });
+            },
+            child: Icon(
+              Icons.shopping_cart,
+            ),
+          ),
         ],
       ),
       bottom: PreferredSize(

@@ -58,17 +58,23 @@ class _StateMainScreen extends State<MainScreen> {
     return showDialog(
           context: context,
           builder: (context) => new AlertDialog(
-            title: Text('Sei sicuro'),
-            content: Text('Chiudere ShopyFast?'),
+            title: Text(
+              'Sei sicuro',
+              style: TextStyle(color: Colors.white),
+            ),
+            content: Text(
+              'Chiudere ShopyFast?',
+              style: TextStyle(color: Colors.white),
+            ),
             actions: <Widget>[
               GestureDetector(
                 onTap: () => Navigator.of(context).pop(false),
-                child: Text("NO"),
+                child: Text("NO", style: TextStyle(color: Colors.white)),
               ),
               SizedBox(height: 16),
               GestureDetector(
                 onTap: () => Navigator.of(context).pop(true),
-                child: Text("SI"),
+                child: Text("SI", style: TextStyle(color: Colors.white)),
               ),
             ],
           ),
