@@ -7,7 +7,7 @@ class CartItemCard extends StatelessWidget {
     Key key,
     @required this.sList,
   }) : super(key: key);
-  final ShoppingList sList;
+  final ProductLineItem sList;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -22,7 +22,11 @@ class CartItemCard extends StatelessWidget {
               decoration: BoxDecoration(
                   color: sList.product.color,
                   borderRadius: BorderRadius.circular(15)),
-              child: Image.asset(sList.product.image),
+              child: FlatButton(
+                  onPressed: () {
+                    return null;
+                  },
+                  child: Image.asset(sList.product.image)),
             ),
           ),
         ),
@@ -43,7 +47,7 @@ class CartItemCard extends StatelessWidget {
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 18),
-                children: [TextSpan(text: " quantità: ${sList.numOfItems}")]))
+                children: [TextSpan(text: " quantità: ${sList.quantity}")]))
           ],
         )
       ],

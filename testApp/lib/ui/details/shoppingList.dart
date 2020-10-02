@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:testApp/ui/Product.dart';
 
-class ShoppingList {
+class ProductLineItem {
   final Product product;
-  final int numOfItems;
-  ShoppingList({@required this.product, @required this.numOfItems});
+  final int quantity;
+  ProductLineItem({@required this.product, @required this.quantity});
 }
 
-List<ShoppingList> demoCarts = [
-  ShoppingList(product: products[0], numOfItems: 2),
-  ShoppingList(product: products[1], numOfItems: 1),
-  ShoppingList(product: products[2], numOfItems: 2),
+List<ProductLineItem> demoCarts = [
+  ProductLineItem(product: products[0], quantity: 2),
+  ProductLineItem(product: products[1], quantity: 1),
+  ProductLineItem(product: products[2], quantity: 2),
 ];
+
+List<Product> miao = [];

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testApp/ui/details/shoppingList.dart';
 
 class Product {
   final String image, title, description;

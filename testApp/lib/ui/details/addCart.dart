@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testApp/ui/details/shoppingList.dart';
 
 import '../Product.dart';
 
@@ -31,7 +32,9 @@ class AddCart extends StatelessWidget {
                   color: Colors.black,
                 ),
                 color: Colors.blue[200],
-                onPressed: () {}),
+                onPressed: () {
+                  demoCarts.add(ProductLineItem(product: product, quantity: 1));
+                }),
           ),
           Expanded(
             child: SizedBox(
