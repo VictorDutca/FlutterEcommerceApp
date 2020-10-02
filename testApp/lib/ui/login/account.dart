@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:testApp/ui/myAppBar.dart';
-import 'myDrawer.dart';
+import 'package:testApp/ui/someWidgets/myAppBar.dart';
+import 'package:testApp/ui/someWidgets/myDrawer.dart';
 
 class Account extends StatefulWidget {
   final Function onNext;

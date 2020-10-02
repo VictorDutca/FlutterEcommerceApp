@@ -30,15 +30,15 @@ class _NavState extends State<MyBottomNav> {
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              title: Text("Home"),
+              label: "Home",
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.favorite_border),
-              title: Text("Wishlist"),
+              label: "Wishlist",
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person_outline),
-              title: Text("Account"),
+              label: "Account",
             ),
           ],
         ));

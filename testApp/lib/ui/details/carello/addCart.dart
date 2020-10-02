@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:testApp/ui/details/shoppingList.dart';
-
-import '../Product.dart';
+import 'package:testApp/Product.dart';
+import 'package:testApp/shoppingList.dart';
 
 class AddCart extends StatelessWidget {
   const AddCart({

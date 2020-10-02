@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:testApp/ui/myAppBar.dart';
-import 'package:testApp/ui/myDrawer.dart';
+import 'package:testApp/ui/someWidgets/myAppBar.dart';
+import 'package:testApp/ui/someWidgets/myDrawer.dart';
 
 class WishList extends StatefulWidget {
   WishList({Key key}) : super(key: key);

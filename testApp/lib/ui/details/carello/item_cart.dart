@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../shoppingList.dart';
+import 'package:testApp/shoppingList.dart';
 
 class CartItemCard extends StatelessWidget {
   const CartItemCard({

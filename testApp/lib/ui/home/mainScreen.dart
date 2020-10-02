@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:testApp/ui/account.dart';
 import 'package:testApp/ui/home/homeScreen.dart';
-import 'package:testApp/ui/myAppBar.dart';
-import 'package:testApp/ui/wish.dart';
+import 'package:testApp/ui/login/account.dart';
+import 'package:testApp/ui/wishList/wish.dart';
 
 class MainScreen extends StatefulWidget {
   MainScreen({Key key}) : super(key: key);
@@ -39,15 +38,15 @@ class _StateMainScreen extends State<MainScreen> {
             items: [
               BottomNavigationBarItem(
                 icon: Icon(Icons.home),
-                title: Text("Home"),
+                label: "Home",
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.favorite_border),
-                title: Text("Wishlist"),
+                label: "Wishlist",
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.person_outline),
-                title: Text("Account"),
+                label: "Account",
               ),
             ],
           ),

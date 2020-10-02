@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:testApp/ui/home/homeScreen.dart';
+import 'package:testApp/ui/details/carello/ShoppingCart.dart';
 import 'package:testApp/ui/home/mainScreen.dart';
-import 'details/ShoppingCart.dart';
 
 class MyAppBar extends StatefulWidget {
   MyAppBar({Key key}) : super(key: key);

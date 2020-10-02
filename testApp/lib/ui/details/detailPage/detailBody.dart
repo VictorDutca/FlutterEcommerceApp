@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:testApp/ui/Product.dart';
-import 'package:testApp/ui/details/productNameImage.dart';
-
-import 'addCart.dart';
-
+import 'package:testApp/Product.dart';
+import 'package:testApp/ui/details/carello/addCart.dart';
+import 'package:testApp/ui/details/detailPage/productNameImage.dart';
 import 'colorAndSize.dart';
 import 'description.dart';
 import 'favBtn.dart';

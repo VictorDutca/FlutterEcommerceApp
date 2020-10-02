@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../Product.dart';
-import '../constants.dart';
-import 'colorDot.dart';
+import 'package:testApp/Product.dart';
+import 'package:testApp/constants.dart';
+import 'package:testApp/ui/details/detailPage/colorDot.dart';
 
 class ColorAndSize extends StatelessWidget {
   final Product product;

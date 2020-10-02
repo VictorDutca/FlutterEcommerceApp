@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:testApp/ui/Product.dart';
-import 'package:testApp/ui/constants.dart';
-import 'package:testApp/ui/details/details_screen.dart';
-import 'package:testApp/ui/slider.dart';
+import 'package:testApp/Product.dart';
+import 'package:testApp/constants.dart';
+import 'package:testApp/ui/details/detailPage/details_screen.dart';
+import 'package:testApp/ui/someWidgets/slider.dart';
 
 class MyBody extends StatelessWidget {
   @override

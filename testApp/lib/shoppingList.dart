@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:testApp/ui/Product.dart';
+import 'package:testApp/Product.dart';
 
 class ProductLineItem {
   final Product product;

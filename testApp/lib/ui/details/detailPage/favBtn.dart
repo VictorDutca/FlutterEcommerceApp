@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'cartCounter.dart';
+import 'package:testApp/ui/details/carello/cartCounter.dart';
 
 class FavBtn extends StatelessWidget {
   const FavBtn({

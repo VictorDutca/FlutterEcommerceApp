@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:testApp/ui/constants.dart';
-
+import 'package:testApp/constants.dart';
 import 'package:testApp/ui/home/mainScreen.dart';
 
 final Color darkBlue = Color.fromARGB(255, 18, 32, 47);

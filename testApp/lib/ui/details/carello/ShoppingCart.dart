@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:testApp/ui/details/CartBody.dart';
-import 'package:testApp/ui/details/shoppingList.dart';
+import 'package:testApp/shoppingList.dart';
+import 'package:testApp/ui/details/carello/CartBody.dart';
 
 class ShoppingCart extends StatelessWidget {
   @override

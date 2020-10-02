@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:testApp/ui/Product.dart';
-import 'package:testApp/ui/details/detailBody.dart';
-import 'package:testApp/ui/myAppBar.dart';
+import 'package:testApp/Product.dart';
+import 'package:testApp/ui/details/detailPage/detailBody.dart';
+import 'package:testApp/ui/someWidgets/myAppBar.dart';
 
 class DetailsScreen extends StatelessWidget {
   final Product product;
