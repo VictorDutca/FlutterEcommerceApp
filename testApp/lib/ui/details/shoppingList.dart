@@ -7,10 +7,4 @@ class ProductLineItem {
   ProductLineItem({@required this.product, @required this.quantity});
 }
 
-List<ProductLineItem> demoCarts = [
-  ProductLineItem(product: products[0], quantity: 2),
-  ProductLineItem(product: products[1], quantity: 1),
-  ProductLineItem(product: products[2], quantity: 2),
-];
-
-List<Product> miao = [];
+List<ProductLineItem> demoCarts = [];

@@ -19,7 +19,7 @@ class _CartBodyState extends State<CartBody> {
           padding: const EdgeInsets.symmetric(vertical: 10),
           child: Dismissible(
             direction: DismissDirection.endToStart,
-            key: Key(demoCarts[index].product.id.toString()),
+            key: UniqueKey(),
             background: Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
