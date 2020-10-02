@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:testApp/ui/details/carello/cartCounter.dart';
 
-class FavBtn extends StatelessWidget {
-  const FavBtn({
+class FavBtnAndItemCounter extends StatelessWidget {
+  const FavBtnAndItemCounter({
     Key key,
   }) : super(key: key);
 

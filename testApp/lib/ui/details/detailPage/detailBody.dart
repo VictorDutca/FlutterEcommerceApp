@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:testApp/Product.dart';
 import 'package:testApp/ui/details/carello/addCart.dart';
+import 'package:testApp/ui/details/detailPage/favBtnAndItemCounter.dart';
 import 'package:testApp/ui/details/detailPage/productNameImage.dart';
 import 'colorAndSize.dart';
 import 'description.dart';
-import 'favBtn.dart';
 
 class Body extends StatelessWidget {
   final Product product;
@@ -35,7 +35,7 @@ class Body extends StatelessWidget {
                         product: product,
                       ),
                       Description(product: product),
-                      FavBtn(),
+                      FavBtnAndItemCounter(),
                       AddCart(product: product),
                     ],
                   ),
