@@ -12,8 +12,8 @@ class CartItemCard extends StatelessWidget {
     return Row(
       children: <Widget>[
         SizedBox(
-          width: 100,
-          height: 100,
+          width: 150,
+          height: 120,
           child: AspectRatio(
             aspectRatio: 0.88,
             child: Container(
