@@ -14,9 +14,15 @@ class _WishListState extends State<WishList> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            appBar:
-                PreferredSize(child: MyAppBar(), preferredSize: Size(150, 100)),
-            drawer: MyDrawer(),
-            body: WishBody()));
+      appBar: PreferredSize(child: MyAppBar(), preferredSize: Size(150, 100)),
+      drawer: MyDrawer(),
+      //backgroundColor: Image.asset("assets/images/cista.png").color,
+      body: Container(
+        decoration: BoxDecoration(
+          image:
+              DecorationImage(image: AssetImage("assets/images/cista_1.png")),
+        ),
+      ),
+    ));
   }
 }
