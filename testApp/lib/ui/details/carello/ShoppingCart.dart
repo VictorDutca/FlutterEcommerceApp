@@ -17,10 +17,11 @@ class _ShoppingCartState extends State<ShoppingCart> {
       child: Scaffold(
         appBar: PreferredSize(
           child: CartAppbar(),
-          preferredSize: Size(100, 150),
+          preferredSize: Size(100, 80),
         ),
-        body: demoCarts.length > 0 ? CartBody() : NothingAdded(),
-        bottomNavigationBar: demoCarts.length > 0 ? CartBottomNav() : null,
+        body: productCartItem.length > 0 ? CartBody() : NothingAdded(),
+        bottomNavigationBar:
+            productCartItem.length > 0 ? CartBottomNav() : null,
       ),
     );
   }

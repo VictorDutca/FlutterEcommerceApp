@@ -32,7 +32,8 @@ class AddCart extends StatelessWidget {
                 ),
                 color: Colors.blue[200],
                 onPressed: () {
-                  demoCarts.add(ProductLineItem(product: product, quantity: 1));
+                  productCartItem
+                      .add(ProductLineItem(product: product, quantity: 1));
                 }),
           ),
           Expanded(

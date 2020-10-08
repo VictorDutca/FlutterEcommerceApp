@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:testApp/shoppingList.dart';
+import 'package:testApp/ui/details/carello/CartAppBar.dart';
 import 'package:testApp/ui/details/carello/item_cart.dart';
 
 class CartBody extends StatefulWidget {
@@ -13,7 +14,7 @@ class _CartBodyState extends State<CartBody> {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       child: ListView.builder(
-        itemCount: demoCarts.length,
+        itemCount: productCartItem.length,
         itemBuilder: (context, index) => Padding(
           padding: const EdgeInsets.symmetric(vertical: 10),
           child: Dismissible(
@@ -38,11 +39,11 @@ class _CartBodyState extends State<CartBody> {
             ),
             onDismissed: (direction) {
               setState(() {
-                demoCarts.removeAt(index);
+                productCartItem.removeAt(index);
               });
             },
             child: CartItemCard(
-              sList: demoCarts[index],
+              sList: productCartItem[index],
             ),
           ),
         ),
