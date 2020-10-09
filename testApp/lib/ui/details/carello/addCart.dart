@@ -3,12 +3,14 @@ import 'package:testApp/Product.dart';
 import 'package:testApp/shoppingList.dart';
 
 class AddCart extends StatelessWidget {
-  const AddCart({
+  int quantity;
+  AddCart({
     Key key,
+    this.quantity,
     @required this.product,
   }) : super(key: key);
 
-  final Product product;
+  Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +34,8 @@ class AddCart extends StatelessWidget {
                 ),
                 color: Colors.blue[200],
                 onPressed: () {
-                  productCartItem
-                      .add(ProductLineItem(product: product, quantity: 1));
+                  productCartItem.add(
+                      ProductLineItem(product: product, quantity: quantity));
                 }),
           ),
           Expanded(

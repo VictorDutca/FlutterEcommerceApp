@@ -7,8 +7,9 @@ import 'colorAndSize.dart';
 import 'description.dart';
 
 class Body extends StatelessWidget {
-  final Product product;
-  const Body({Key key, this.product}) : super(key: key);
+  Product product;
+  int quantity;
+  Body({Key key, this.product, this.quantity = 0}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -35,8 +36,8 @@ class Body extends StatelessWidget {
                         product: product,
                       ),
                       Description(product: product),
-                      FavBtnAndItemCounter(),
-                      AddCart(product: product),
+                      FavBtnAndItemCounter(quantity: quantity),
+                      AddCart(product: product, quantity: quantity),
                     ],
                   ),
                 ),

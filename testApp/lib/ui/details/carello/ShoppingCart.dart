@@ -13,6 +13,7 @@ class ShoppingCart extends StatefulWidget {
 class _ShoppingCartState extends State<ShoppingCart> {
   @override
   Widget build(BuildContext context) {
+    int list = productCartItem.length;
     return SafeArea(
       child: Scaffold(
         appBar: PreferredSize(

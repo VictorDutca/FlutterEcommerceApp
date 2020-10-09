@@ -4,8 +4,8 @@ import 'package:testApp/ui/details/detailPage/detailBody.dart';
 import 'package:testApp/ui/someWidgets/myAppBar.dart';
 
 class DetailsScreen extends StatelessWidget {
-  final Product product;
-  const DetailsScreen({
+  Product product;
+  DetailsScreen({
     Key key,
     this.product,
   }) : super(key: key);
