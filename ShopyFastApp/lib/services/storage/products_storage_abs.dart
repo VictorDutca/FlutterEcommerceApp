@@ -5,7 +5,7 @@
 
 import 'package:ShopyFast/buisness_logic/entity/product.dart';
 
-abstract class Products {
-  Future<List<Product>> getAllProducts();
+abstract class ProductsStorage {
+  List<Product> getAllProducts();
   //Future<List<Product>> getAllFavoritesProducts();
 }
