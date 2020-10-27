@@ -9,9 +9,10 @@ class HomeScreenViewModel {
 
   List<Product> get allProducts => _allProducts;
 
-  void allProductsList() {
+  Future<List<Product>> allProductsList() async {
     List<Product> list = [];
-    list = _productsService.getAllProducts();
+    list = await _productsService.getAllProducts();
     _allProducts = list;
+    return list;
   }
 }

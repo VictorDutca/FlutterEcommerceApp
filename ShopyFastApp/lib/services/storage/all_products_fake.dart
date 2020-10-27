@@ -3,7 +3,7 @@ import 'package:ShopyFast/services/storage/products_storage_abs.dart';
 
 class ProductsStorageFakeImpl implements ProductsStorage {
   @override
-  List<Product> getAllProducts() {
+  Future<List<Product>> getAllProducts() async {
     List<Product> list = [
       Product(
         modelname: "One Plus 7",
@@ -54,6 +54,7 @@ class ProductsStorageFakeImpl implements ProductsStorage {
         price: 1310,
       ),
     ];
+    Future.delayed(Duration(seconds: 3));
     return list;
   }
 }

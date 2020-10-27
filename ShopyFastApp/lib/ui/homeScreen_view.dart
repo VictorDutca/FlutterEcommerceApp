@@ -15,23 +15,40 @@ class _HomeScreenViewState extends State<HomeScreenView> {
 
   @override
   void initState() {
-    model.allProductsList();
     super.initState();
+    model.allProductsList().then((products) {
+      print(products);
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: GeneralAppBar(
-        title: "Home",
-      ),
-      body: Container(
-        width: 100,
-        height: 100,
-        decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(12)),
-        child: Image.asset(model.allProducts[1].image),
-      ),
-    );
+        appBar: GeneralAppBar(
+          title: "Home",
+        ),
+        body: GridView.builder(
+          itemCount: model.allProducts.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2, childAspectRatio: 0.75),
+          itemBuilder: (context, index) => Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+            child: Column(
+              children: [
+                Container(
+                  padding: EdgeInsets.all(20),
+                  width: 160,
+                  height: 180,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Image.asset(model.allProducts[index].image),
+                ),
+                Text("${model.allProducts[index].modelname}"),
+                Text("${model.allProducts[index].price}")
+              ],
+            ),
+          ),
+        ));
   }
 }
