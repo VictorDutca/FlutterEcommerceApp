@@ -54,7 +54,7 @@ class ProductsStorageFakeImpl implements ProductsStorage {
         price: 1310,
       ),
     ];
-    Future.delayed(Duration(seconds: 3));
+    await Future.delayed(Duration(seconds: 3));
     return list;
   }
 }
