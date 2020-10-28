@@ -2,7 +2,6 @@ import 'package:ShopyFast/buisness_logic/entity/product.dart';
 import 'package:ShopyFast/services/service_locator.dart';
 import 'package:ShopyFast/services/storage/products_storage_abs.dart';
 import 'package:bloc/bloc.dart';
-import 'package:flutter/cupertino.dart';
 
 // Initial state del bloc è uno stato che indica il caricamento in corso
 class HomeScreenViewModel extends Bloc<HomeEvents, AllHomeStates> {
@@ -12,7 +11,8 @@ class HomeScreenViewModel extends Bloc<HomeEvents, AllHomeStates> {
   @override
   Stream<AllHomeStates> mapEventToState(HomeEvents event) async* {
     if (event == HomeEvents.Fetch) {
-      final products = await _productsService.getAllProducts();
+      final products = await _productsService
+          .getAllProducts(); // questo da me è un LazySingleton
       yield AllHomeLoadedState(products);
     }
   }

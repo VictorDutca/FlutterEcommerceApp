@@ -1,4 +1,5 @@
 import 'package:ShopyFast/buisness_logic/view_models/homeScreen_view_model.dart';
+import 'package:ShopyFast/ui/productDetail_view.dart';
 
 import 'package:ShopyFast/ui/widgets/general_app_bar_view.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,13 @@ class _HomeScreenViewState extends State<HomeScreenView> {
           return Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[CircularProgressIndicator(), Text("data")],
+              children: <Widget>[
+                CircularProgressIndicator(),
+                SizedBox(
+                  height: 10,
+                ),
+                Text("Ricerca offerte")
+              ],
             ),
           );
         } else {
@@ -40,23 +47,44 @@ class _HomeScreenViewState extends State<HomeScreenView> {
           return GridView.builder(
             itemCount: products.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, childAspectRatio: 0.75),
-            itemBuilder: (context, index) => Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-              child: Column(
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(20),
-                    width: 160,
-                    height: 180,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Image.asset(products[index].image),
-                  ),
-                  Text("${products[index].modelname}"),
-                  Text("${products[index].price}")
-                ],
+                mainAxisSpacing: 20,
+                crossAxisSpacing: 20,
+                crossAxisCount: 2,
+                childAspectRatio: 0.70),
+            itemBuilder: (context, index) => GestureDetector(
+              onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ProductDetailsView(
+                            product: products[index],
+                          ))),
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Container(
+                        padding: EdgeInsets.all(10),
+                        width: 160,
+                        height: 180,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20)),
+                        child: Image.asset(products[index].image),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 5),
+                      child: Text(products[index].modelname),
+                    ),
+                    Text(
+                      "€ ${products[index].price}",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    )
+                  ],
+                ),
               ),
             ),
           );
