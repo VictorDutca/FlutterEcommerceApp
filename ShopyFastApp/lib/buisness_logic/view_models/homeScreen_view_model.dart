@@ -5,20 +5,20 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 
 // Initial state del bloc è uno stato che indica il caricamento in corso
-class HomeScreenViewModel extends Bloc<HomeEvents, int> {
+class HomeScreenViewModel extends Bloc<HomeEvents, AllHomeStates> {
   // Bloc<Tipo dell'evento , Tipo di stato che genererà>
   final ProductsStorage _productsService = serviceLocator<ProductsStorage>();
-
+// prende un evento e restituisce generando un nuovo stato
   @override
-  Stream<int> mapEventToState(HomeEvents event) {
-    // prende un evento e restituisce generando un nuovo stato
-
-    throw UnimplementedError();
+  Stream<AllHomeStates> mapEventToState(HomeEvents event) async* {
+    if (event == HomeEvents.Fetch) {
+      final products = await _productsService.getAllProducts();
+      yield AllHomeLoadedState(products);
+    }
   }
 
   @override
-  // TODO: implement initialState
-  int get initialState => throw UnimplementedError();
+  AllHomeStates get initialState => AllHomeLoadingState();
 }
 
 enum HomeEvents {
