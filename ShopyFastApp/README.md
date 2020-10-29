@@ -1,4 +1,4 @@
-# testApp
+# ShopyFast
 
 A new Flutter project.
 

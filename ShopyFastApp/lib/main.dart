@@ -1,5 +1,4 @@
 import 'package:ShopyFast/buisness_logic/view_models/homeScreen_view_model.dart';
-import 'package:ShopyFast/ui/homeScreen_view.dart';
 import 'package:ShopyFast/ui/home_navBar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: darkBlue,
       ),
-      home: HomeScreenView(),
+      home: NavbarView(),
     );
   }
 }

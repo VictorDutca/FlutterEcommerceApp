@@ -1,5 +1,7 @@
 import 'package:ShopyFast/buisness_logic/view_models/homeScreen_view_model.dart';
+import 'package:ShopyFast/ui/home_navBar_view.dart';
 import 'package:ShopyFast/ui/productDetail_view.dart';
+import 'package:ShopyFast/ui/widgets/drawer_view.dart';
 
 import 'package:ShopyFast/ui/widgets/general_app_bar_view.dart';
 import 'package:flutter/material.dart';
@@ -20,9 +22,8 @@ class _HomeScreenViewState extends State<HomeScreenView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: GeneralAppBar(
-          title: "Home",
-        ),
+        drawer: MyDrawer(),
+        appBar: PreferredSize(preferredSize: Size(100, 65), child: MyAppBar()),
         body: buildGridView());
   }
 
