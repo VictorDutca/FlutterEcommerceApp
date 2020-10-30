@@ -13,77 +13,117 @@ class ProductDetailsView extends StatelessWidget {
         body: titleProduct());
   }
 
-  Padding titleProduct() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            product.modelname,
-            style: TextStyle(fontSize: 35),
-          ),
-          SizedBox(
-            height: 4,
-          ),
-          Text("Prezzo", style: TextStyle(fontSize: 20)),
-          SizedBox(
-            height: 5,
-          ),
-          Text("€ ${product.price}",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-          SizedBox(
-            height: 20,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                child: Image.asset(
-                  product.image,
-                  fit: BoxFit.contain,
-                  height: 350,
-                  width: 300,
-                ),
-              )
-            ],
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 1),
-            height: 150,
-            decoration: BoxDecoration(
-                color: Colors.amber,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(24),
-                    topRight: Radius.circular(24))),
-            child: Column(
+  SingleChildScrollView titleProduct() {
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              product.modelname,
+              style: TextStyle(fontSize: 35),
+            ),
+            SizedBox(
+              height: 4,
+            ),
+            Text("Prezzo", style: TextStyle(fontSize: 20)),
+            SizedBox(
+              height: 5,
+            ),
+            Text("€ ${product.price}",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Row(
-                  children: <Widget>[],
+                Container(
+                  child: Image.asset(
+                    product.image,
+                    fit: BoxFit.contain,
+                    height: 270,
+                    width: 230,
+                  ),
                 )
               ],
             ),
-          )
-        ],
+            Container(
+              height: 240,
+              decoration: BoxDecoration(
+                  color: Colors.blueGrey[300],
+                  borderRadius: BorderRadius.all(Radius.circular(24))),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: <Widget>[
+                    Expanded(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "${product.modelname}",
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        SizedBox(
+                          height: 120,
+                          width: 300,
+                          child: Scrollbar(
+                            child: SingleChildScrollView(
+                              child: Text(
+                                "${product.description}",
+                                style: TextStyle(fontSize: 15),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Expanded(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Container(
+                            child: FlatButton(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18.0),
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.shopping_cart,
+                                    color: Colors.black,
+                                  ),
+                                  SizedBox(width: 3),
+                                  Text('Aggiungi al carrello'),
+                                ],
+                              ),
+                              color: Colors.amber,
+                              textColor: Colors.black,
+                              onPressed: () {
+                                return null;
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
-
-/* Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-              "Prezzo",
-                style: TextStyle(fontSize: 20),
-           ),
-              SizedBox(
-                height: 5,
-              ),
-              Text("€ ${product.price}",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-            ],
-          ), */
