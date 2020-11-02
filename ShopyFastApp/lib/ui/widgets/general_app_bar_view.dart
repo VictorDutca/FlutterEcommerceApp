@@ -78,7 +78,7 @@ class _AppBarState extends State<MyAppBar> {
           IconButton(
               icon: Icon(Icons.shopping_cart),
               onPressed: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ShoppingCartView()))),
+                  MaterialPageRoute(builder: (context) => CartView()))),
           Positioned(
             top: 0,
             right: 0,

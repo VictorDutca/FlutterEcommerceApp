@@ -33,7 +33,6 @@ abstract class AllHomeStates {}
 class AllHomeLoadingState extends AllHomeStates {}
 
 class AllHomeLoadedState extends AllHomeStates {
-  //non mi è chiaro del perché debba avere la lista dei prodotti ? la restituisce come evento
   AllHomeLoadedState(this.product);
   List<Product> product;
 }
