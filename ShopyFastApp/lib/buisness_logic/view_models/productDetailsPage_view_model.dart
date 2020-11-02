@@ -7,7 +7,7 @@ class ProductDetailsPageViewModel
     extends Bloc<DetailsPageEvents, AllDetailsPageState> {
   CartProducts _cartProductsService = serviceLocator<CartProducts>();
   @override
-  AllDetailsPageState get initialState => AllDetailsPageLoadingState();
+  AllDetailsPageState get initialState => AllDetailsPageState([]);
 
   @override
   Stream<AllDetailsPageState> mapEventToState(DetailsPageEvents event) async* {
@@ -15,7 +15,7 @@ class ProductDetailsPageViewModel
       final productToAdd = event.product;
       final newCartProdutcs =
           await _cartProductsService.addProduct(productToAdd);
-      yield AllDetailsPageLoadedState(newCartProdutcs);
+      yield AllDetailsPageState(newCartProdutcs);
     }
   }
 }
@@ -27,11 +27,7 @@ class DetailsPageAddEvent extends DetailsPageEvents {
   DetailsPageAddEvent(this.product);
 }
 
-abstract class AllDetailsPageState {}
-
-class AllDetailsPageLoadingState extends AllDetailsPageState {}
-
-class AllDetailsPageLoadedState extends AllDetailsPageState {
+class AllDetailsPageState {
   List<Product> products;
-  AllDetailsPageLoadedState(this.products);
+  AllDetailsPageState(this.products);
 }
