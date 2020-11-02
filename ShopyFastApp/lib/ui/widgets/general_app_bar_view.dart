@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:ShopyFast/buisness_logic/view_models/productDetailsPage_view_model.dart';
+import 'package:ShopyFast/buisness_logic/view_models/cart_view_model.dart';
 import 'package:ShopyFast/ui/home_navBar_view.dart';
 import 'package:ShopyFast/ui/shoppingCart_view.dart';
 import 'package:flutter/material.dart';
@@ -72,8 +72,7 @@ class _AppBarState extends State<MyAppBar> {
   }
 
   Widget buildStackIconBloc() {
-    return BlocBuilder<ProductDetailsPageViewModel, AllDetailsPageState>(
-        builder: (context, cartState) {
+    return BlocBuilder<CartViewModel, CartState>(builder: (context, cartState) {
       return Stack(
         children: <Widget>[
           IconButton(

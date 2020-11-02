@@ -1,5 +1,5 @@
 import 'package:ShopyFast/buisness_logic/view_models/homeScreen_view_model.dart';
-import 'package:ShopyFast/buisness_logic/view_models/productDetailsPage_view_model.dart';
+import 'package:ShopyFast/buisness_logic/view_models/cart_view_model.dart';
 import 'package:ShopyFast/ui/home_navBar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,7 +10,7 @@ void main() {
   servicesConainer();
   runApp(MultiBlocProvider(providers: [
     BlocProvider(create: (context) => HomeScreenViewModel()),
-    BlocProvider(create: (context) => ProductDetailsPageViewModel())
+    BlocProvider(create: (context) => CartViewModel())
   ], child: MyApp()));
 }
 

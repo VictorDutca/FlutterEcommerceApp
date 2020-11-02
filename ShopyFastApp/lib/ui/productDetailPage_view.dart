@@ -1,5 +1,5 @@
 import 'package:ShopyFast/buisness_logic/entity/product.dart';
-import 'package:ShopyFast/buisness_logic/view_models/productDetailsPage_view_model.dart';
+import 'package:ShopyFast/buisness_logic/view_models/cart_view_model.dart';
 import 'package:ShopyFast/ui/widgets/general_app_bar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -109,10 +109,8 @@ class ProductDetailsView extends StatelessWidget {
                                   color: Colors.amber,
                                   textColor: Colors.black,
                                   onPressed: () {
-                                    BlocProvider.of<
-                                                ProductDetailsPageViewModel>(
-                                            context)
-                                        .add(DetailsPageAddEvent(product));
+                                    BlocProvider.of<CartViewModel>(context)
+                                        .add(CartAddEvent(product));
                                   },
                                 ),
                               ),
