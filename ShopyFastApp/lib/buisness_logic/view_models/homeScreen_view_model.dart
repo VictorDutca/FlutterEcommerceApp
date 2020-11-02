@@ -1,12 +1,13 @@
 import 'package:ShopyFast/buisness_logic/entity/product.dart';
 import 'package:ShopyFast/services/service_locator.dart';
-import 'package:ShopyFast/services/storage/products_storage_abs.dart';
+import 'package:ShopyFast/services/storage/all_products_storage_abs.dart';
 import 'package:bloc/bloc.dart';
 
-// Initial state del bloc è uno stato che indica il caricamento in corso
+// Initial state del bloc è uno stato che indica il caricamento in corso, lo stato iniziale
 class HomeScreenViewModel extends Bloc<HomeEvents, AllHomeStates> {
   // Bloc<Tipo dell'evento , Tipo di stato che genererà>
-  final ProductsStorage _productsService = serviceLocator<ProductsStorage>();
+  final AllProductsStorage _productsService =
+      serviceLocator<AllProductsStorage>();
 // prende un evento e restituisce generando un nuovo stato
   @override
   Stream<AllHomeStates> mapEventToState(HomeEvents event) async* {

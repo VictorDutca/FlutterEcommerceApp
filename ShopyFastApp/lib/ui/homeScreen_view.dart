@@ -1,6 +1,6 @@
 import 'package:ShopyFast/buisness_logic/view_models/homeScreen_view_model.dart';
 import 'package:ShopyFast/ui/home_navBar_view.dart';
-import 'package:ShopyFast/ui/productDetail_view.dart';
+import 'package:ShopyFast/ui/productDetailPage_view.dart';
 import 'package:ShopyFast/ui/widgets/drawer_view.dart';
 
 import 'package:ShopyFast/ui/widgets/general_app_bar_view.dart';

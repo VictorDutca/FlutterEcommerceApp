@@ -1,7 +1,7 @@
 import 'package:ShopyFast/buisness_logic/entity/product.dart';
-import 'package:ShopyFast/services/storage/products_storage_abs.dart';
+import 'package:ShopyFast/services/storage/all_products_storage_abs.dart';
 
-class ProductsStorageFakeImpl implements ProductsStorage {
+class ProductsStorageFakeImpl implements AllProductsStorage {
   @override
   Future<List<Product>> getAllProducts() async {
     List<Product> list = [

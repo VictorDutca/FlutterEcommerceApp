@@ -1,9 +1,11 @@
 import 'dart:ui';
 
+import 'package:ShopyFast/buisness_logic/view_models/productDetailsPage_view_model.dart';
 import 'package:ShopyFast/ui/home_navBar_view.dart';
 import 'package:ShopyFast/ui/shoppingCart_view.dart';
 import 'package:ShopyFast/ui/widgets/drawer_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MyAppBar extends StatefulWidget {
   MyAppBar({Key key}) : super(key: key);
@@ -15,7 +17,6 @@ class _AppBarState extends State<MyAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-        //centerTitle: true,
         title: Row(
       //mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
@@ -52,7 +53,8 @@ class _AppBarState extends State<MyAppBar> {
               SizedBox(
                 width: 10,
               ),
-              InkWell(
+              buildStackIconBloc(),
+              /* InkWell(
                 onTap: () {
                   Navigator.push(
                       context,
@@ -62,12 +64,43 @@ class _AppBarState extends State<MyAppBar> {
                 child: Icon(
                   Icons.shopping_cart,
                 ),
-              ),
+              ), */
             ],
           ),
         ),
       ],
     ));
+  }
+
+  Widget buildStackIconBloc() {
+    return BlocBuilder<ProductDetailsPageViewModel, AllDetailsPageState>(
+        builder: (context, cartState) {
+      final productList = (cartState as AllDetailsPageLoadedState).products;
+      return Stack(
+        children: <Widget>[
+          IconButton(
+              icon: Icon(Icons.shopping_cart),
+              onPressed: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ShoppingCartView()))),
+          Positioned(
+            top: 0,
+            right: 0,
+            child: Container(
+              width: 20,
+              height: 20,
+              decoration:
+                  BoxDecoration(color: Colors.red, shape: BoxShape.circle),
+              child: Center(
+                child: Text(
+                  productList.length.toString(),
+                  style: TextStyle(color: Colors.white, fontSize: 18),
+                ),
+              ),
+            ),
+          ),
+        ],
+      );
+    });
   }
 }
 
