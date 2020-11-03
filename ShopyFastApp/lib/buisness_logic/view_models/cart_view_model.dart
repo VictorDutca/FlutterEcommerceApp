@@ -16,7 +16,6 @@ class CartViewModel extends Bloc<CartEvents, CartState> {
       final productToAdd = event.product;
       final newCartProdutcs =
           await _cartProductsService.addProduct(productToAdd);
-
       yield CartState(newCartProdutcs);
     } else if (event is CartRemoveEvent) {
       final productToRemove = event.product;

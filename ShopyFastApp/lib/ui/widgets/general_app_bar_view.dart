@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:ShopyFast/buisness_logic/entity/product.dart';
 import 'package:ShopyFast/buisness_logic/view_models/cart_view_model.dart';
 import 'package:ShopyFast/ui/home_navBar_view.dart';
 import 'package:ShopyFast/ui/shoppingCart_view.dart';
@@ -73,6 +74,7 @@ class _AppBarState extends State<MyAppBar> {
 
   Widget buildStackIconBloc() {
     return BlocBuilder<CartViewModel, CartState>(builder: (context, cartState) {
+      final List<Product> products = cartState.products;
       return Stack(
         children: <Widget>[
           IconButton(
@@ -89,7 +91,7 @@ class _AppBarState extends State<MyAppBar> {
                   BoxDecoration(color: Colors.red, shape: BoxShape.circle),
               child: Center(
                 child: Text(
-                  cartState.products.length.toString(),
+                  products.length.toString(),
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
               ),

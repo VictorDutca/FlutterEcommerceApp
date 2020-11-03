@@ -1,3 +1,4 @@
+import 'package:ShopyFast/buisness_logic/entity/product.dart';
 import 'package:ShopyFast/buisness_logic/view_models/cart_view_model.dart';
 import 'package:ShopyFast/ui/productDetailPage_view.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,8 @@ class CartView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CartViewModel, CartState>(builder: (context, cartState) {
-      if (cartState.products.isEmpty) {
+      final List<Product> products = cartState.products;
+      if (products.isEmpty) {
         return Scaffold(
           appBar: thisAppBar(),
           body: NothingAdded(),
@@ -26,10 +28,11 @@ class CartView extends StatelessWidget {
 
   Widget thisBottomNav() =>
       BlocBuilder<CartViewModel, CartState>(builder: (context, cartState) {
-        final totalcost = cartState.products.length > 0
-            ? cartState.products.map((it) => it.price).reduce((a, b) => a + b)
+        final List<Product> products = cartState.products;
+        final totalcost = products.length > 0
+            ? products.map((it) => it.price).reduce((a, b) => a + b)
             : 0.0;
-        if (cartState.products.length > 0) {
+        if (products.length > 0) {
           return Container(
             height: 100,
             decoration: BoxDecoration(boxShadow: [
@@ -99,6 +102,7 @@ class CartView extends StatelessWidget {
 
   Widget thisBody() =>
       BlocBuilder<CartViewModel, CartState>(builder: (context, cartState) {
+        final List<Product> products = cartState.products;
         return Padding(
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           child: ListView.builder(
@@ -124,7 +128,7 @@ class CartView extends StatelessWidget {
                 ),
                 onDismissed: (direction) {
                   BlocProvider.of<CartViewModel>(context)
-                      .add(CartRemoveEvent(cartState.products[index]));
+                      .add(CartRemoveEvent(products[index]));
                 },
                 child: Row(
                   children: <Widget>[
@@ -144,11 +148,9 @@ class CartView extends StatelessWidget {
                                     MaterialPageRoute(
                                         builder: (context) =>
                                             ProductDetailsView(
-                                              product:
-                                                  cartState.products[index],
+                                              product: products[index],
                                             ))),
-                                child: Image.asset(
-                                    cartState.products[index].image)),
+                                child: Image.asset(products[index].image)),
                           ),
                         )),
                     SizedBox(
@@ -157,14 +159,14 @@ class CartView extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(cartState.products[index].modelname,
+                        Text(products[index].modelname,
                             style:
                                 TextStyle(color: Colors.white, fontSize: 18)),
                         SizedBox(
                           height: 10,
                         ),
                         Text.rich(TextSpan(
-                            text: "€${cartState.products[index].price}",
+                            text: "€${products[index].price}",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
@@ -176,7 +178,7 @@ class CartView extends StatelessWidget {
                 ),
               ),
             ),
-            itemCount: cartState.products.length,
+            itemCount: products.length,
           ),
         );
       });
@@ -186,12 +188,13 @@ class CartView extends StatelessWidget {
       centerTitle: true,
       title:
           BlocBuilder<CartViewModel, CartState>(builder: (context, cartState) {
-        final len = cartState.products.length;
+        final List<Product> products = cartState.products;
+        final len = products.length;
         if (len > 0) {
           return Column(
             children: <Widget>[
               Text("Il carrello contiene "),
-              Text("${cartState.products.length} prodotti")
+              Text("${products.length} prodotti")
             ],
           );
         } else {

@@ -11,6 +11,7 @@ class CartProductsFakeImp implements CartProducts {
   @override
   Future<List<Product>> addProduct(Product product) async {
     cartlist.add(product);
+
     return cartlist;
   }
 

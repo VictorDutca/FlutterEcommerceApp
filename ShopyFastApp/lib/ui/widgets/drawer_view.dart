@@ -9,8 +9,17 @@ class MyDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
-            child: Text("MenuHeader"),
-            decoration: BoxDecoration(color: Colors.blue),
+            child: Center(
+              child: Container(
+                  width: 300,
+                  height: 300,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                          fit: BoxFit.contain,
+                          image: NetworkImage(
+                              "https://vignette.wikia.nocookie.net/gtaxfilesiv/images/1/16/CJ.jpg/revision/latest?cb=20170311101231")))),
+            ),
           ),
           ListTile(
               title: Text("item1"),

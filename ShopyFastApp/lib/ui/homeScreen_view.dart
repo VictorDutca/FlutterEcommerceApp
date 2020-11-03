@@ -16,7 +16,8 @@ class _HomeScreenViewState extends State<HomeScreenView> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<HomeScreenViewModel>(context).add(HomeEvents.Fetch);
+    BlocProvider.of<HomeScreenViewModel>(context).add(HomeEvents
+        .Fetch); // rimangono dei dubbi sufli stati iniziali e come concorrono
   }
 
   @override
@@ -39,7 +40,7 @@ class _HomeScreenViewState extends State<HomeScreenView> {
                 SizedBox(
                   height: 10,
                 ),
-                Text("Ricerca offerte")
+                Text("Asking Elon")
               ],
             ),
           );
