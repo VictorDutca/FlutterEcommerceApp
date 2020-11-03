@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:ShopyFast/buisness_logic/entity/product.dart';
 import 'package:ShopyFast/services/service_locator.dart';
 import 'package:ShopyFast/services/storage/products_cart_storage_abs.dart';
@@ -14,9 +16,11 @@ class CartViewModel extends Bloc<CartEvents, CartState> {
       final productToAdd = event.product;
       final newCartProdutcs =
           await _cartProductsService.addProduct(productToAdd);
+
       yield CartState(newCartProdutcs);
     } else if (event is CartRemoveEvent) {
       final productToRemove = event.product;
+
       final newCartProducts =
           await _cartProductsService.removeProduct(productToRemove);
       yield CartState(newCartProducts);
@@ -38,5 +42,6 @@ class CartRemoveEvent extends CartEvents {
 
 class CartState {
   List<Product> products;
+
   CartState(this.products);
 }
