@@ -86,37 +86,7 @@ class ProductDetailsView extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Expanded(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Container(
-                                child: FlatButton(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(18.0),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.shopping_cart,
-                                        color: Colors.black,
-                                      ),
-                                      SizedBox(width: 3),
-                                      Text('Aggiungi al carrello'),
-                                    ],
-                                  ),
-                                  color: Colors.amber,
-                                  textColor: Colors.black,
-                                  onPressed: () {
-                                    BlocProvider.of<CartViewModel>(context)
-                                        .add(CartAddEvent(product));
-                                  },
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
+                        AddToCartBtn(product: product),
                       ],
                     ),
                   ),
@@ -138,4 +108,60 @@ class ProductDetailsView extends StatelessWidget {
       },
     );
   } */
+}
+
+class AddToCartBtn extends StatelessWidget {
+  const AddToCartBtn({
+    Key key,
+    @required this.product,
+  }) : super(key: key);
+
+  final Product product;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            child: FlatButton(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(18.0),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.shopping_cart,
+                    color: Colors.black,
+                  ),
+                  SizedBox(width: 3),
+                  Text('Aggiungi al carrello'),
+                ],
+              ),
+              color: Colors.amber,
+              textColor: Colors.black,
+              onPressed: () {
+                BlocProvider.of<CartViewModel>(context)
+                    .add(CartAddEvent(product));
+                Scaffold.of(context).showSnackBar(SnackBar(
+                  backgroundColor: Colors.black,
+                  content: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        " ${product.modelname} aggiunto al carrello",
+                        style: TextStyle(color: Colors.amber),
+                      ),
+                    ],
+                  ),
+                ));
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
