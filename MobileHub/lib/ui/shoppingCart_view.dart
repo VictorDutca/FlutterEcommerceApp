@@ -129,6 +129,18 @@ class CartView extends StatelessWidget {
                 onDismissed: (direction) {
                   BlocProvider.of<CartViewModel>(context)
                       .add(CartRemoveEvent(products[index]));
+                  Scaffold.of(context).showSnackBar(SnackBar(
+                    backgroundColor: Colors.black,
+                    content: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          " ${products[index].modelname} rimosso dal carrello",
+                          style: TextStyle(color: Colors.amber),
+                        ),
+                      ],
+                    ),
+                  ));
                 },
                 child: Row(
                   children: <Widget>[
