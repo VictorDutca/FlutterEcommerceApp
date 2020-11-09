@@ -18,9 +18,12 @@ class ProductDetailsView extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
-                  product.modelname,
-                  style: TextStyle(fontSize: 35),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Text(
+                    product.modelname,
+                    style: TextStyle(fontSize: 30),
+                  ),
                 ),
                 SizedBox(
                   height: 4,
@@ -39,14 +42,16 @@ class ProductDetailsView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Container(
-                      child: Image.asset(
-                        product.image,
-                        fit: BoxFit.contain,
-                        height: 270,
-                        width: 230,
+                      child: Image(
+                        image: NetworkImage(product.image),
+                        width: 270,
+                        height: 250,
                       ),
                     )
                   ],
+                ),
+                SizedBox(
+                  height: 50,
                 ),
                 Container(
                   height: 240,
@@ -58,15 +63,19 @@ class ProductDetailsView extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         Expanded(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "${product.modelname}",
-                                style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold),
-                              ),
-                            ],
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "${product.modelname}",
+                                  style: TextStyle(
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                         Row(
@@ -151,7 +160,7 @@ class AddToCartBtn extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        " ${product.modelname} aggiunto al carrello",
+                        " Prodotto aggiunto al carrello ",
                         style: TextStyle(color: Colors.amber),
                       ),
                     ],

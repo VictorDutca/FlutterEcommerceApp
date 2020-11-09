@@ -40,7 +40,7 @@ class _HomeScreenViewState extends State<HomeScreenView> {
                 SizedBox(
                   height: 10,
                 ),
-                Text("Asking Elon")
+                Text("Fetching Products")
               ],
             ),
           );
@@ -74,7 +74,8 @@ class _HomeScreenViewState extends State<HomeScreenView> {
                         decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(20)),
-                        child: Image.asset(products[index].image),
+                        child:
+                            Image(image: NetworkImage(products[index].image)),
                       ),
                     ),
                     Padding(

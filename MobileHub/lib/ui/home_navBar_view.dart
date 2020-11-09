@@ -14,7 +14,6 @@ class _StateMainScreen extends State<NavbarView> {
   int _selectedIndex = 0;
   List<Widget> list = [
     HomeScreenView(),
-    WishListView(),
     AccountView(),
   ];
   void onItemTaped(int index) {
@@ -39,10 +38,6 @@ class _StateMainScreen extends State<NavbarView> {
               BottomNavigationBarItem(
                 icon: Icon(Icons.home),
                 label: "Home",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.favorite_border),
-                label: "Wishlist",
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.person_outline),

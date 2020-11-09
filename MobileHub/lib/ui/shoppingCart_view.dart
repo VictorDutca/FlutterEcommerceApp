@@ -32,6 +32,7 @@ class CartView extends StatelessWidget {
         final totalcost = products.length > 0
             ? products.map((it) => it.price).reduce((a, b) => a + b)
             : 0.0;
+        double round = ((totalcost * 100).roundToDouble()) / 100;
         if (products.length > 0) {
           return Container(
             height: 100,
@@ -56,7 +57,7 @@ class CartView extends StatelessWidget {
                           style: TextStyle(fontSize: 20),
                         ),
                         Text(
-                          totalcost.toString(),
+                          round.toString(),
                           style: TextStyle(
                               fontSize: 25, fontWeight: FontWeight.bold),
                         )
@@ -135,7 +136,7 @@ class CartView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          " ${products[index].modelname} rimosso dal carrello",
+                          " Prodotto rimosso dal carrello",
                           style: TextStyle(color: Colors.amber),
                         ),
                       ],
@@ -162,7 +163,9 @@ class CartView extends StatelessWidget {
                                             ProductDetailsView(
                                               product: products[index],
                                             ))),
-                                child: Image.asset(products[index].image)),
+                                child: Image(
+                                    image:
+                                        NetworkImage(products[index].image))),
                           ),
                         )),
                     SizedBox(
@@ -171,9 +174,14 @@ class CartView extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(products[index].modelname,
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 18)),
+                        Container(
+                          width: 192,
+                          child: Text(products[index].modelname,
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 2,
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 18)),
+                        ),
                         SizedBox(
                           height: 10,
                         ),
