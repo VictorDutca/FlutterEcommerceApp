@@ -83,7 +83,6 @@ class Description extends StatefulWidget {
 class _DescriptionState extends State<Description> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     BlocProvider.of<ProductDetailPageViewModel>(context)
         .add(FetchEvent(widget.widget.product));
