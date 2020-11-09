@@ -1,5 +1,6 @@
 import 'package:MobileHub/buisness_logic/view_models/homeScreen_view_model.dart';
 import 'package:MobileHub/buisness_logic/view_models/cart_view_model.dart';
+import 'package:MobileHub/buisness_logic/view_models/productDetailPage_view_model.dart';
 import 'package:MobileHub/ui/home_navBar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,7 +11,8 @@ void main() {
   servicesConainer();
   runApp(MultiBlocProvider(providers: [
     BlocProvider(create: (context) => HomeScreenViewModel()),
-    BlocProvider(create: (context) => CartViewModel())
+    BlocProvider(create: (context) => CartViewModel()),
+    BlocProvider(create: (context) => ProductDetailPageViewModel()),
   ], child: MyApp()));
 }
 

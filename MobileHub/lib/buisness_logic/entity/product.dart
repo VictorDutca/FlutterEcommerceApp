@@ -7,7 +7,12 @@ class Product {
   factory Product.fromJson(Map<String, dynamic> hit) {
     final modelname = hit["product_name"];
     final image = hit["image"]["link"];
+    final description = hit["link"];
     final price = hit["price"];
-    return Product(modelname: modelname, price: price, image: image);
+    return Product(
+        modelname: modelname,
+        price: price,
+        image: image,
+        description: description);
   }
 }

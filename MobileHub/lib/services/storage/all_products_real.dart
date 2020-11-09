@@ -18,4 +18,13 @@ class AllProducts implements AllProductsStorage {
 
     return products;
   }
+
+  @override
+  Future<String> getDescription(String url) async {
+    final responce = await http.get(url);
+    String responceBody = responce.body;
+    dynamic jsonObject = json.decode(responceBody);
+    var description = jsonObject["short_description"];
+    return description;
+  }
 }

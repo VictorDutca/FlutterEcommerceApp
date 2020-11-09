@@ -7,5 +7,6 @@ import 'package:MobileHub/buisness_logic/entity/product.dart';
 
 abstract class AllProductsStorage {
   Future<List<Product>> getAllProducts();
+  Future<String> getDescription(String url);
   //Future<List<Product>> getAllFavoritesProducts();
 }

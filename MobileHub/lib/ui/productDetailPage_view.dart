@@ -1,13 +1,20 @@
 import 'package:MobileHub/buisness_logic/entity/product.dart';
 import 'package:MobileHub/buisness_logic/view_models/cart_view_model.dart';
+import 'package:MobileHub/buisness_logic/view_models/productDetailPage_view_model.dart';
+
 import 'package:MobileHub/ui/widgets/general_app_bar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ProductDetailsView extends StatelessWidget {
+class ProductDetailsView extends StatefulWidget {
   final Product product;
   const ProductDetailsView({Key key, this.product}) : super(key: key);
 
+  @override
+  _ProductDetailsViewState createState() => _ProductDetailsViewState();
+}
+
+class _ProductDetailsViewState extends State<ProductDetailsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +28,7 @@ class ProductDetailsView extends StatelessWidget {
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Text(
-                    product.modelname,
+                    widget.product.modelname,
                     style: TextStyle(fontSize: 30),
                   ),
                 ),
@@ -32,7 +39,7 @@ class ProductDetailsView extends StatelessWidget {
                 SizedBox(
                   height: 5,
                 ),
-                Text("€ ${product.price}",
+                Text("€ ${widget.product.price}",
                     style:
                         TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
                 SizedBox(
@@ -43,7 +50,7 @@ class ProductDetailsView extends StatelessWidget {
                   children: <Widget>[
                     Container(
                       child: Image(
-                        image: NetworkImage(product.image),
+                        image: NetworkImage(widget.product.image),
                         width: 270,
                         height: 250,
                       ),
@@ -53,70 +60,103 @@ class ProductDetailsView extends StatelessWidget {
                 SizedBox(
                   height: 50,
                 ),
-                Container(
-                  height: 240,
-                  decoration: BoxDecoration(
-                      color: Colors.blueGrey[300],
-                      borderRadius: BorderRadius.all(Radius.circular(24))),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      children: <Widget>[
-                        Expanded(
-                          child: SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "${product.modelname}",
-                                  style: TextStyle(
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            SizedBox(
-                              height: 120,
-                              width: 300,
-                              child: Scrollbar(
-                                child: SingleChildScrollView(
-                                  child: Text(
-                                    "${product.description}",
-                                    style: TextStyle(fontSize: 15),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        AddToCartBtn(product: product),
-                      ],
-                    ),
-                  ),
-                ),
+                Description(widget: widget),
               ],
             ),
           ),
         ));
   }
+}
 
-  /*  void _openLoadingDialog(BuildContext context) {
-    showDialog(
-      barrierDismissible: false,
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          content: CircularProgressIndicator(),
+class Description extends StatefulWidget {
+  const Description({
+    Key key,
+    @required this.widget,
+  }) : super(key: key);
+
+  final ProductDetailsView widget;
+
+  @override
+  _DescriptionState createState() => _DescriptionState();
+}
+
+class _DescriptionState extends State<Description> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    BlocProvider.of<ProductDetailPageViewModel>(context)
+        .add(FetchEvent(widget.widget.product));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<ProductDetailPageViewModel, AllDetailPageStates>(
+        builder: (context, pageState) {
+      if (pageState is DetailPageLoadedState) {
+        final description = pageState.description;
+        return Container(
+          height: 240,
+          decoration: BoxDecoration(
+              color: Colors.blueGrey[300],
+              borderRadius: BorderRadius.all(Radius.circular(24))),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: <Widget>[
+                Expanded(
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "${widget.widget.product.modelname}",
+                          style: TextStyle(
+                              fontSize: 25, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    SizedBox(
+                      height: 120,
+                      width: 300,
+                      child: Scrollbar(
+                        child: SingleChildScrollView(
+                          child: Text(
+                            description,
+                            style: TextStyle(fontSize: 15),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                AddToCartBtn(product: widget.widget.product),
+              ],
+            ),
+          ),
         );
-      },
-    );
-  } */
+      } else {
+        return Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              CircularProgressIndicator(),
+              SizedBox(
+                height: 10,
+              ),
+              //Text("Fetching Products")
+            ],
+          ),
+        );
+      }
+    });
+  }
 }
 
 class AddToCartBtn extends StatelessWidget {
