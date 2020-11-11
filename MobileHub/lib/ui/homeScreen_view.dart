@@ -1,5 +1,4 @@
 import 'package:MobileHub/buisness_logic/view_models/homeScreen_view_model.dart';
-import 'package:MobileHub/ui/home_navBar_view.dart';
 import 'package:MobileHub/ui/productDetailPage_view.dart';
 import 'package:MobileHub/ui/widgets/drawer_view.dart';
 

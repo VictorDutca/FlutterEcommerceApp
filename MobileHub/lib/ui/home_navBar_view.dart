@@ -1,6 +1,5 @@
-import 'package:MobileHub/ui/account_view.dart';
 import 'package:MobileHub/ui/homeScreen_view.dart';
-import 'package:MobileHub/ui/wishList_view.dart';
+import 'package:MobileHub/ui/widgets/account_view.dart';
 import 'package:flutter/material.dart';
 
 class NavbarView extends StatefulWidget {
@@ -14,7 +13,7 @@ class _StateMainScreen extends State<NavbarView> {
   int _selectedIndex = 0;
   List<Widget> list = [
     HomeScreenView(),
-    AccountView(),
+    LoginScreen(),
   ];
   void onItemTaped(int index) {
     setState(() {

@@ -1,6 +1,6 @@
 import 'package:MobileHub/buisness_logic/entity/product.dart';
 import 'package:MobileHub/services/service_locator.dart';
-import 'package:MobileHub/services/storage/all_products_storage_abs.dart';
+import 'package:MobileHub/services/src/all_products_storage_abs.dart';
 import 'package:bloc/bloc.dart';
 
 // Initial state del bloc è uno stato che indica il caricamento in corso, lo stato iniziale

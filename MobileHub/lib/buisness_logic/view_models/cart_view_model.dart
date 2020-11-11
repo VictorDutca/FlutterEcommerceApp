@@ -1,8 +1,6 @@
-import 'dart:ffi';
-
 import 'package:MobileHub/buisness_logic/entity/product.dart';
 import 'package:MobileHub/services/service_locator.dart';
-import 'package:MobileHub/services/storage/products_cart_storage_abs.dart';
+import 'package:MobileHub/services/src/products_cart_storage_abs.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CartViewModel extends Bloc<CartEvents, CartState> {

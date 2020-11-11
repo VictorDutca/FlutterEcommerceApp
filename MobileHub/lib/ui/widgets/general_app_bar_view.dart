@@ -35,7 +35,7 @@ class _AppBarState extends State<MyAppBar> {
               ),
             ),
             Text(
-              "MobileHub",
+              "TechHub",
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ],
